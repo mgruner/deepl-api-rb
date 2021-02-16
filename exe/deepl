@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "deepl_api/cli"
+
+begin
+  DeeplAPI::CLI.start
+rescue => error
+  STDERR.puts "Error: #{error}"
+  exit(1)
+end
