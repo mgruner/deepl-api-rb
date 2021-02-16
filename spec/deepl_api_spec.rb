@@ -58,6 +58,7 @@ RSpec.describe "DeeplAPI::DeepL.translate errors" do
   end
 end
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe "DeeplAPI::DeepL.translate usage" do
   deepl = DeeplAPI::DeepL.new(api_key: ENV["DEEPL_API_KEY"])
 
@@ -67,71 +68,71 @@ RSpec.describe "DeeplAPI::DeepL.translate usage" do
         args: {
           source_language: "DE",
           target_language: "EN-US",
-          texts: ["ja"],
+          texts: ["ja"]
         },
         result: [
           {
             "detected_source_language" => "DE",
-            "text" => "yes",
-          },
-        ],
+            "text" => "yes"
+          }
+        ]
       },
       {
         args: {
           source_language: "DE",
           target_language: "EN-US",
           preserve_formatting: true,
-          texts: ["ja\n nein"],
+          texts: ["ja\n nein"]
         },
         result: [
           {
             "detected_source_language" => "DE",
-            "text" => "yes\n no",
-          },
-        ],
+            "text" => "yes\n no"
+          }
+        ]
       },
       {
         args: {
           source_language: "DE",
           target_language: "EN-US",
           split_sentences: DeeplAPI::SplitSentences::NONE,
-          texts: ["Ja. Nein."],
+          texts: ["Ja. Nein."]
         },
         result: [
           {
             "detected_source_language" => "DE",
-            "text" => "Yes. No.",
-          },
-        ],
+            "text" => "Yes. No."
+          }
+        ]
       },
       {
         args: {
           source_language: "EN",
           target_language: "DE",
           formality: DeeplAPI::Formality::MORE,
-          texts: ["Please go home."],
+          texts: ["Please go home."]
         },
         result: [
           {
             "detected_source_language" => "EN",
-            "text" => "Bitte gehen Sie nach Hause.",
-          },
-        ],
+            "text" => "Bitte gehen Sie nach Hause."
+          }
+        ]
       },
       {
         args: {
           source_language: "EN",
           target_language: "DE",
           formality: DeeplAPI::Formality::LESS,
-          texts: ["Please go home."],
+          texts: ["Please go home."]
         },
         result: [
           {
             "detected_source_language" => "EN",
-            "text" => "Bitte geh nach Hause.",
-          },
-        ],
-      },
+            "text" => "Bitte geh nach Hause."
+          }
+        ]
+      }
     ]
 
     tests.each do |test|
@@ -139,3 +140,4 @@ RSpec.describe "DeeplAPI::DeepL.translate usage" do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

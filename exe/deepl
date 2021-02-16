@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require "deepl_api/cli"
 
 begin
   DeeplAPI::CLI.start
-rescue => error
-  STDERR.puts "Error: #{error}"
+rescue StandardError => e
+  warn "Error: #{e}"
   exit(1)
 end
