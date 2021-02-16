@@ -24,7 +24,14 @@ require_relative "deepl_api/errors"
 # ## Example
 #
 # ```ruby
-# ...
+# require "deepl_api"
+#
+# deepl = DeeplAPI::DeepL.new( api_key: ENV["DEEPL_API_KEY"] )
+# usage = deepl.usage_information()
+# => #<DeeplAPI::UsageInformation:0x00007fcbc588cc08 @character_limit=250000, @character_count=1450>
+#
+# translation = deepl.translate( source_language: "DE", target_language: "EN-US", texts: ["ja"] )
+# => [{"detected_source_language"=>"DE", "text"=>"yes"}]
 # ```
 #
 # ## See Also

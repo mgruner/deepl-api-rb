@@ -1,4 +1,4 @@
-# deepl-api-py
+# deepl-api-rb
 
 This repository contains a [Ruby](https://www.ruby-lang.org/) implementation of the [DeepL REST API](https://www.deepl.com/docs-api/).
 
