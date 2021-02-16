@@ -23,7 +23,7 @@ require_relative "deepl_api/errors"
 #
 # ## Example
 #
-# ```ruby
+# ```text
 # require "deepl_api"
 #
 # deepl = DeeplAPI::DeepL.new( api_key: ENV["DEEPL_API_KEY"] )
