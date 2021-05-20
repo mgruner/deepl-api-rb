@@ -58,7 +58,7 @@ GEM
     unicode-display_width (2.0.0)
 
 PLATFORMS
-  universal-darwin-20
+  ruby
 
 DEPENDENCIES
   deepl_api!
