@@ -53,8 +53,8 @@ module DeeplAPI
   class DeepL
     # Create an instance by providing a valid API key.
     def initialize(api_key:)
-      @api_base_url = "https://api.deepl.com/v2"
       @api_key = api_key.to_s
+      @api_base_url = @api_key[-3, 3].eql?(":fx") ? "https://api-free.deepl.com/v2" : "https://api.deepl.com/v2"
       return unless @api_key.empty?
 
       raise DeeplAPI::Errors::DeeplAuthorizationError, "No API key provided."

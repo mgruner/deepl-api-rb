@@ -11,3 +11,5 @@ gem "rspec", "~> 3.0"
 gem "rspec-temp_dir", "~> 1.1"
 
 gem "rubocop", "~> 1.7"
+gem "rubocop-rake"
+gem "rubocop-rspec"
