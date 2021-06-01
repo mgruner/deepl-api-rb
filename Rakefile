@@ -12,6 +12,6 @@ RuboCop::RakeTask.new
 task default: %i[spec rubocop]
 
 # Generate documentation
-task :doc do |t|
+task :doc do |_t|
   system "rdoc"
 end

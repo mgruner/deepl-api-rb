@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Bindings and a commandline tool for the DeepL REST API (https://www.deepl.com/docs-api/)"
   spec.homepage      = "https://github.com/mgruner/deepl-api-rb"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
