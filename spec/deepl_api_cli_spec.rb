@@ -58,15 +58,19 @@ RSpec.describe "deepl translate" do
   end
 
   it "works with minimal arguments" do
-    stdout, _stderr, status = Open3.capture3("deepl translate --source-language EN --target-language DE",
-                                             stdin_data: "Please go home.")
+    stdout, _stderr, status = Open3.capture3(
+      "deepl translate --source-language EN --target-language DE",
+      stdin_data: "Please go home."
+    )
     expect(status.exitstatus).to eq 0
     expect(stdout).to eq "Bitte gehen Sie nach Hause.\n"
   end
 
   it "fails with wrong target language" do
-    _stdout, stderr, status = Open3.capture3("deepl translate --source-language EN --target-language FALSE",
-                                             stdin_data: "Please go home.")
+    _stdout, stderr, status = Open3.capture3(
+      "deepl translate --source-language EN --target-language FALSE",
+      stdin_data: "Please go home."
+    )
     expect(status.exitstatus).to eq 1
     expect(stderr).to eq "Error: An error occurred while communicating with the DeepL server: " \
                          "'Value for 'target_lang' not supported.'.\n"
@@ -74,23 +78,29 @@ RSpec.describe "deepl translate" do
 
   it "can read from and write to files" do
     File.write("input_file.txt", "Please go home.")
-    _stdout, _stderr, status = Open3.capture3("deepl translate --source-language EN --target-language DE" \
-      " --input-file input_file.txt --output_file output_file.txt")
+    _stdout, _stderr, status = Open3.capture3(
+      "deepl translate --source-language EN --target-language DE" \
+      " --input-file input_file.txt --output_file output_file.txt"
+    )
     expect(status.exitstatus).to eq 0
     expect(File.read("output_file.txt")).to eq "Bitte gehen Sie nach Hause."
   end
 
   it "fails on missing input file" do
-    _stdout, stderr, status = Open3.capture3("deepl translate --source-language EN --target-language DE " \
-      "--input-file missing_input_file.txt --output_file output_file.txt")
+    _stdout, stderr, status = Open3.capture3(
+      "deepl translate --source-language EN --target-language DE " \
+      "--input-file missing_input_file.txt --output_file output_file.txt"
+    )
     expect(status.exitstatus).to eq 1
     expect(stderr).to eq "Error: No such file or directory @ rb_sysopen - missing_input_file.txt\n"
   end
 
   it "fails on unavailable output file" do
     File.write("input_file.txt", "Please go home.")
-    _stdout, stderr, status = Open3.capture3("deepl translate --source-language EN --target-language DE " \
-      "--input-file input_file.txt --output_file nonexisting/file/path")
+    _stdout, stderr, status = Open3.capture3(
+      "deepl translate --source-language EN --target-language DE " \
+      "--input-file input_file.txt --output_file nonexisting/file/path"
+    )
     expect(status.exitstatus).to eq 1
     expect(stderr).to eq "Error: No such file or directory @ rb_sysopen - nonexisting/file/path\n"
   end
