@@ -5,11 +5,11 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in deepl_api.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
+gem "rake"
 
-gem "rspec", "~> 3.0"
-gem "rspec-temp_dir", "~> 1.1"
+gem "rspec"
+gem "rspec-temp_dir"
 
-gem "rubocop", "~> 1.7"
+gem "rubocop"
 gem "rubocop-rake"
 gem "rubocop-rspec"
